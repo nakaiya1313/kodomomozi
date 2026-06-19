@@ -26,7 +26,10 @@ button{border:none;border-radius:999px;font-weight:900;padding:8px 6px;font-size
 button.primary{background:#ffcf6b}button.on{background:#8ee6a4}button.danger{background:#ffb0a6}
 #keyboardArea{flex:1 1 auto;min-height:0;padding:6px 6px 8px;background:rgba(255,255,255,.4);border-top:2px solid rgba(255,190,75,.35);overflow:hidden;display:flex;flex-direction:column;gap:6px}
 #modifierRow{width:min(98vw,820px);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;flex-shrink:0}
-.modBtn{background:#dff0ff;border:2px solid rgba(0,0,0,.08);border-radius:14px;min-height:38px;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,.08)}
+.modBtn{background:#dff0ff;border:2px solid rgba(0,0,0,.08);border-radius:14px;min-height:40px;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:2px;white-space:nowrap;padding:2px;box-shadow:0 2px 5px rgba(0,0,0,.08)}
+.modBtn .mk{font-size:21px;line-height:1}
+.modBtn .lb{font-size:13px;line-height:1}
+.modBtn *{pointer-events:none}
 .modBtn:active,.kanaBtn:active{transform:scale(.96);background:#ffefb5}
 #kanaGrid{width:min(98vw,820px);margin:0 auto;display:grid;grid-template-columns:repeat(10,1fr);grid-auto-rows:1fr;gap:5px;flex:1;min-height:0}
 .kanaBtn{border-radius:12px;background:#fff;border:2px solid rgba(0,0,0,.08);box-shadow:0 2px 5px rgba(0,0,0,.08);font-size:clamp(20px,5.1vw,30px);font-weight:900;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0}
@@ -42,13 +45,18 @@ button.primary{background:#ffcf6b}button.on{background:#8ee6a4}button.danger{bac
   #answerDisplay{font-size:24px;min-height:28px}
   #message{font-size:14px;min-height:18px}
   button{font-size:11px;padding:6px 4px}
-  .modBtn{min-height:32px;font-size:14px}
+  .modBtn{min-height:32px;font-size:13px}
+  .modBtn .mk{font-size:18px}
+  .modBtn .lb{font-size:12px}
 }
 @media(max-width:380px){
   #controls{gap:4px}
   button{font-size:11px;padding:7px 3px}
   #kanaGrid{gap:4px}
   .kanaBtn{border-radius:10px}
+  .modBtn{font-size:12px;gap:1px}
+  .modBtn .mk{font-size:18px}
+  .modBtn .lb{font-size:11px}
 }
 </style>
 </head>
@@ -88,10 +96,10 @@ button.primary{background:#ffcf6b}button.on{background:#8ee6a4}button.danger{bac
 
   <div id="keyboardArea">
     <div id="modifierRow">
-      <div class="modBtn" id="dakutenBtn">゛</div>
-      <div class="modBtn" id="handakuBtn">゜</div>
-      <div class="modBtn" id="smallBtn">こもじ</div>
-      <div class="modBtn" id="longBtn">ー</div>
+      <div class="modBtn" id="dakutenBtn"><span class="mk">゛</span><span class="lb">つける</span></div>
+      <div class="modBtn" id="handakuBtn"><span class="mk">゜</span><span class="lb">つける</span></div>
+      <div class="modBtn" id="smallBtn"><span class="lb">こもじ</span></div>
+      <div class="modBtn" id="longBtn"><span class="mk">ー</span><span class="lb">のばす</span></div>
     </div>
     <div id="kanaGrid"></div>
   </div>
@@ -251,7 +259,65 @@ const questions=[
 {emoji:"🚀",hira:"ろけっと",kata:"ロケット",level:"hard"},
 {emoji:"🚚",hira:"とらっく",kata:"トラック",level:"hard"},
 {emoji:"🚁",hira:"へりこぷたー",kata:"ヘリコプター",level:"hard"},
-{emoji:"🍔",hira:"はんばーがー",kata:"ハンバーガー",level:"hard"}
+{emoji:"🍔",hira:"はんばーがー",kata:"ハンバーガー",level:"hard"},
+
+{emoji:"🐷",hira:"ぶた",kata:"ブタ",level:"easy"},
+{emoji:"🦆",hira:"あひる",kata:"アヒル",level:"easy"},
+{emoji:"🦌",hira:"しか",kata:"シカ",level:"easy"},
+{emoji:"🦏",hira:"さい",kata:"サイ",level:"easy"},
+{emoji:"🍉",hira:"すいか",kata:"スイカ",level:"easy"},
+{emoji:"🍐",hira:"なし",kata:"ナシ",level:"easy"},
+{emoji:"🍈",hira:"めろん",kata:"メロン",level:"easy"},
+{emoji:"🥛",hira:"みるく",kata:"ミルク",level:"easy"},
+{emoji:"🧊",hira:"こおり",kata:"コオリ",level:"easy"},
+{emoji:"❄️",hira:"ゆき",kata:"ユキ",level:"easy"},
+{emoji:"🌊",hira:"なみ",kata:"ナミ",level:"easy"},
+{emoji:"🎀",hira:"りぼん",kata:"リボン",level:"easy"},
+{emoji:"🥁",hira:"たいこ",kata:"タイコ",level:"easy"},
+{emoji:"✂️",hira:"はさみ",kata:"ハサミ",level:"easy"},
+{emoji:"💍",hira:"ゆびわ",kata:"ユビワ",level:"easy"},
+{emoji:"🍢",hira:"おでん",kata:"オデン",level:"easy"},
+
+{emoji:"🦘",hira:"かんがるー",kata:"カンガルー",level:"normal"},
+{emoji:"🦝",hira:"あらいぐま",kata:"アライグマ",level:"normal"},
+{emoji:"🐗",hira:"いのしし",kata:"イノシシ",level:"normal"},
+{emoji:"🦜",hira:"おうむ",kata:"オウム",level:"normal"},
+{emoji:"🐉",hira:"どらごん",kata:"ドラゴン",level:"normal"},
+{emoji:"🦢",hira:"はくちょう",kata:"ハクチョウ",level:"normal"},
+{emoji:"🐆",hira:"ひょう",kata:"ヒョウ",level:"normal"},
+{emoji:"🥭",hira:"まんごー",kata:"マンゴー",level:"normal"},
+{emoji:"🍱",hira:"べんとう",kata:"ベントウ",level:"normal"},
+{emoji:"🚇",hira:"ちかてつ",kata:"チカテツ",level:"normal"},
+{emoji:"🌋",hira:"かざん",kata:"カザン",level:"normal"},
+{emoji:"⚡",hira:"かみなり",kata:"カミナリ",level:"normal"},
+{emoji:"🌪️",hira:"たつまき",kata:"タツマキ",level:"normal"},
+{emoji:"🎲",hira:"さいころ",kata:"サイコロ",level:"normal"},
+{emoji:"🎸",hira:"ぎたー",kata:"ギター",level:"normal"},
+{emoji:"🎻",hira:"ばいおりん",kata:"バイオリン",level:"normal"},
+{emoji:"🎤",hira:"まいく",kata:"マイク",level:"normal"},
+{emoji:"☎️",hira:"でんわ",kata:"デンワ",level:"normal"},
+{emoji:"👓",hira:"めがね",kata:"メガネ",level:"normal"},
+{emoji:"🧮",hira:"そろばん",kata:"ソロバン",level:"normal"},
+{emoji:"🖍️",hira:"くれよん",kata:"クレヨン",level:"normal"},
+{emoji:"👖",hira:"ずぼん",kata:"ズボン",level:"normal"},
+{emoji:"🪞",hira:"かがみ",kata:"カガミ",level:"normal"},
+{emoji:"🧣",hira:"まふらー",kata:"マフラー",level:"normal"},
+
+{emoji:"🦕",hira:"きょうりゅう",kata:"キョウリュウ",level:"hard"},
+{emoji:"🤖",hira:"ろぼっと",kata:"ロボット",level:"hard"},
+{emoji:"🦸",hira:"ひーろー",kata:"ヒーロー",level:"hard"},
+{emoji:"🧁",hira:"かっぷけーき",kata:"カップケーキ",level:"hard"},
+{emoji:"🍿",hira:"ぽっぷこーん",kata:"ポップコーン",level:"hard"},
+{emoji:"🥪",hira:"さんどいっち",kata:"サンドイッチ",level:"hard"},
+{emoji:"🌍",hira:"ちきゅう",kata:"チキュウ",level:"hard"},
+{emoji:"🪐",hira:"わくせい",kata:"ワクセイ",level:"hard"},
+{emoji:"🗼",hira:"たわー",kata:"タワー",level:"hard"},
+{emoji:"🪂",hira:"ぱらしゅーと",kata:"パラシュート",level:"hard"},
+{emoji:"🏀",hira:"ばすけっとぼーる",kata:"バスケットボール",level:"hard"},
+{emoji:"⚾",hira:"やきゅう",kata:"ヤキュウ",level:"hard"},
+{emoji:"🪀",hira:"よーよー",kata:"ヨーヨー",level:"hard"},
+{emoji:"🛸",hira:"ゆーふぉー",kata:"ユーフォー",level:"hard"},
+{emoji:"🦠",hira:"ばいきん",kata:"バイキン",level:"hard"}
 ];
 
 const hiraGrid=[
@@ -285,6 +351,22 @@ const smallMap={
 
 let mode="hira",soundOn=true,current=null,input="",score=0,miss=0,maxMiss=5,gameLevel="easy",used=[],checkTimer=null;
 const kanaGridEl=document.getElementById("kanaGrid"),emojiEl=document.getElementById("emoji"),circleHint=document.getElementById("circleHint"),answerDisplay=document.getElementById("answerDisplay"),message=document.getElementById("message"),scoreText=document.getElementById("scoreText"),missText=document.getElementById("missText"),modeText=document.getElementById("modeText"),modeBtn=document.getElementById("modeBtn"),soundBtn=document.getElementById("soundBtn"),overlay=document.getElementById("overlay");
+
+function injectAd(container,src,w,h){
+  if(!container)return;
+  container.innerHTML="";
+  const ifr=document.createElement("iframe");
+  ifr.width=w;ifr.height=h;ifr.scrolling="no";
+  ifr.setAttribute("frameborder","0");
+  ifr.style.cssText="border:0;display:block;margin:0 auto;overflow:hidden;width:"+w+"px;height:"+h+"px;";
+  container.appendChild(ifr);
+  try{
+    const d=ifr.contentWindow.document;
+    d.open();
+    d.write('<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width='+w+'"><style>html,body{margin:0;padding:0;overflow:hidden;text-align:center}</style></head><body><scr'+'ipt src="'+src+'"></scr'+'ipt></body></html>');
+    d.close();
+  }catch(e){}
+}
 
 function speak(text){
   if(!soundOn||!("speechSynthesis" in window))return;
@@ -448,7 +530,6 @@ function showTitle(){
       <button class="bigButton" type="button" onclick="startGame('easy')">やさしい</button>
       <button class="bigButton" type="button" onclick="startGame('normal')">ふつう</button>
       <button class="bigButton" type="button" onclick="startGame('hard')">むずかしい</button>
-      <button class="bigButton" type="button" onclick="startGame('hard')">むずかしい</button>
     </div>
 
     <div class="ad-large" id="titleAdBox">
@@ -457,11 +538,7 @@ function showTitle(){
   </div>`;
 
   const adBox=document.getElementById("titleAdBox");
-  if(adBox){
-    const s=document.createElement("script");
-    s.src="https://adm.shinobi.jp/s/7b3a5ddb43f4cb9eadb45b1c506ee384";
-    adBox.appendChild(s);
-  }
+  injectAd(adBox,"https://adm.shinobi.jp/s/7b3a5ddb43f4cb9eadb45b1c506ee384",300,250);
 }
 
 function gameOver(){
@@ -483,11 +560,7 @@ function gameOver(){
   </div>`;
 
   const adBox=document.getElementById("gameOverAd");
-  if(adBox){
-    const s=document.createElement("script");
-    s.src="https://adm.shinobi.jp/s/7b3a5ddb43f4cb9eadb45b1c506ee384";
-    adBox.appendChild(s);
-  }
+  injectAd(adBox,"https://adm.shinobi.jp/s/7b3a5ddb43f4cb9eadb45b1c506ee384",300,250);
 
   speak("おしまい。もういちどやってみよう");
 }
