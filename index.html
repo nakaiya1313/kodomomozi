@@ -12,7 +12,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 #app{width:100vw;height:100dvh;display:flex;flex-direction:column;background:linear-gradient(#fff8df,#ffe7b3)}
 .ad-small{height:50px;min-height:50px;max-height:50px;width:100%;background:rgba(255,255,255,.78);border-bottom:1px dashed rgba(0,0,0,.16);display:flex;align-items:center;justify-content:center;color:#777;font-size:12px;overflow:hidden;flex-shrink:0}
 .ad-small-inner{width:320px;height:50px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.ad-large{width:300px;height:250px;margin:14px auto;border:2px dashed rgba(0,0,0,.18);border-radius:16px;background:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;color:#777;font-size:13px;overflow:hidden}
+.ad-large{width:300px;height:250px;position:relative;z-index:1;margin:14px auto;border:2px dashed rgba(0,0,0,.18);border-radius:16px;background:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;color:#777;font-size:13px;overflow:hidden}
 #topArea{flex:0 0 auto;padding:6px 8px 4px;display:flex;flex-direction:column;align-items:center;gap:5px}
 #statusBar{width:min(98vw,760px);display:flex;justify-content:space-between;align-items:center;gap:6px;font-weight:900;font-size:12px}
 .pill{background:rgba(255,255,255,.86);border:2px solid rgba(0,0,0,.07);border-radius:999px;padding:4px 8px;white-space:nowrap}
@@ -21,7 +21,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 #circleHint{font-size:clamp(22px,6vw,36px);letter-spacing:.08em;color:#ff9d00;font-weight:900;line-height:1.1}
 #answerDisplay{min-height:34px;font-size:clamp(24px,6.2vw,40px);letter-spacing:.08em;font-weight:900;color:#333;line-height:1.15}
 #message{min-height:22px;font-size:16px;font-weight:900;color:#ef6c00;line-height:1.2}
-#controls{width:min(98vw,760px);display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+#controls{width:min(98vw,760px);display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
 button{border:none;border-radius:999px;font-weight:900;padding:8px 6px;font-size:12px;color:#333;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.12);cursor:pointer}
 button.primary{background:#ffcf6b}button.on{background:#8ee6a4}button.danger{background:#ffb0a6}
 #keyboardArea{flex:1 1 auto;min-height:0;padding:6px 6px 8px;background:rgba(255,255,255,.4);border-top:2px solid rgba(255,190,75,.35);overflow:hidden;display:flex;flex-direction:column;gap:6px}
@@ -32,9 +32,9 @@ button.primary{background:#ffcf6b}button.on{background:#8ee6a4}button.danger{bac
 .kanaBtn{border-radius:12px;background:#fff;border:2px solid rgba(0,0,0,.08);box-shadow:0 2px 5px rgba(0,0,0,.08);font-size:clamp(20px,5.1vw,30px);font-weight:900;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0}
 .empty{visibility:hidden}
 #overlay{position:fixed;inset:0;z-index:20;background:rgba(255,247,220,.97);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
-.panel{width:min(94vw,520px);background:#fff;border:4px solid #ffcf6b;border-radius:28px;padding:20px 16px;text-align:center;box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.panel{width:min(94vw,520px);max-height:96dvh;overflow:auto;background:#fff;border:4px solid #ffcf6b;border-radius:28px;padding:20px 16px;text-align:center;box-shadow:0 12px 28px rgba(0,0,0,.18)}
 .panel h1{margin:0 0 8px;font-size:34px;color:#ef6c00}.panel p{margin:8px 0;line-height:1.65;font-size:15px}
-.startButtons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.bigButton{padding:14px 10px;font-size:18px;background:#ffcf6b}
+.startButtons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:12px 0 10px;position:relative;z-index:9999}.bigButton{padding:16px 10px;font-size:19px;background:#ffcf6b;position:relative;z-index:10000}
 @media(max-height:670px){
   .ad-large{height:180px}
   #emoji{font-size:48px}
@@ -57,7 +57,9 @@ button.primary{background:#ffcf6b}button.on{background:#8ee6a4}button.danger{bac
   <div class="ad-small">
     <div class="ad-small-inner">
       <!-- 小さい広告枠：忍者AdMax 320×50コードをここに入れてください -->
-      320×50 広告枠
+      <!-- admax -->
+<script src="https://adm.shinobi.jp/s/333a2c8a3bee0f79e94c33161f546957"></script>
+<!-- admax -->
     </div>
   </div>
 
@@ -77,18 +79,18 @@ button.primary{background:#ffcf6b}button.on{background:#8ee6a4}button.danger{bac
 
     <div id="controls">
       <button class="primary" id="modeBtn">カタカナ</button>
-      <button id="soundBtn" class="on">音声ON</button>
-      <button id="backBtn">1字消す</button>
-      <button class="danger" id="clearBtn">全消し</button>
-      <button id="nextBtn">つぎ</button><button id="answerBtn">こたえ</button>
+      <button id="soundBtn" class="on">おとON</button>
+      <button id="backBtn">1つけす</button>
+      <button class="danger" id="clearBtn">ぜんぶ</button>
+      <button id="nextBtn">つぎ</button><button id="answerBtn">こたえ</button><button id="titleBtn">もどる</button>
     </div>
   </div>
 
   <div id="keyboardArea">
     <div id="modifierRow">
-      <div class="modBtn" id="dakutenBtn">゛をつける</div>
-      <div class="modBtn" id="handakuBtn">゜をつける</div>
-      <div class="modBtn" id="smallBtn">小文字</div>
+      <div class="modBtn" id="dakutenBtn">゛</div>
+      <div class="modBtn" id="handakuBtn">゜</div>
+      <div class="modBtn" id="smallBtn">こもじ</div>
       <div class="modBtn" id="longBtn">ー</div>
     </div>
     <div id="kanaGrid"></div>
@@ -96,15 +98,19 @@ button.primary{background:#ffcf6b}button.on{background:#8ee6a4}button.danger{bac
 
   <div id="overlay">
     <div class="panel">
-      <h1>こども<br>文字タッチ</h1>
-      <p>えを見て、したの文字をタッチしよう。<br>ひらがな・カタカナの練習ができます。</p>
-      <div class="ad-large">
-        <!-- 大きい広告枠：タイトル画面用 300×250など -->
-        300×250 広告枠
-      </div>
+      <h1>こども<br>もじタッチ</h1>
+      <p>えをみて、したのもじをタッチしよう。<br>ひらがな・カタカナのれんしゅうができます。</p>
       <div class="startButtons">
-        <button class="bigButton" onclick="startGame('easy')">やさしい</button>
-        <button class="bigButton" onclick="startGame('normal')">ふつう</button>
+        <button class="bigButton" type="button" onclick="startGame('easy')">やさしい</button>
+        <button class="bigButton" type="button" onclick="startGame('normal')">ふつう</button>
+        <button class="bigButton" type="button" onclick="startGame('hard')">むずかしい</button>
+      </div>
+
+      <div class="ad-large">
+        <!-- おおきいこうこく 300×250 -->
+        <!-- admax -->
+<script src="https://adm.shinobi.jp/s/7b3a5ddb43f4cb9eadb45b1c506ee384"></script>
+<!-- admax -->
       </div>
     </div>
   </div>
@@ -117,103 +123,135 @@ const questions=[
 {emoji:"🐘",hira:"ぞう",kata:"ゾウ",level:"easy"},
 {emoji:"🐻",hira:"くま",kata:"クマ",level:"easy"},
 {emoji:"🐵",hira:"さる",kata:"サル",level:"easy"},
-{emoji:"🦁",hira:"らいおん",kata:"ライオン",level:"normal"},
 {emoji:"🐯",hira:"とら",kata:"トラ",level:"easy"},
-{emoji:"🦊",hira:"きつね",kata:"キツネ",level:"normal"},
 {emoji:"🐮",hira:"うし",kata:"ウシ",level:"easy"},
-{emoji:"🐷",hira:"ぶた",kata:"ブタ",level:"easy"},
-{emoji:"🐸",hira:"かえる",kata:"カエル",level:"normal"},
 {emoji:"🐢",hira:"かめ",kata:"カメ",level:"easy"},
-{emoji:"🐟",hira:"さかな",kata:"サカナ",level:"normal"},
 {emoji:"🐙",hira:"たこ",kata:"タコ",level:"easy"},
 {emoji:"🦀",hira:"かに",kata:"カニ",level:"easy"},
-{emoji:"🐞",hira:"てんとうむし",kata:"テントウムシ",level:"normal"},
-{emoji:"🦋",hira:"ちょう",kata:"チョウ",level:"normal"},
 {emoji:"🐝",hira:"はち",kata:"ハチ",level:"easy"},
 {emoji:"🐴",hira:"うま",kata:"ウマ",level:"easy"},
-{emoji:"🐔",hira:"にわとり",kata:"ニワトリ",level:"normal"},
-{emoji:"🐣",hira:"ひよこ",kata:"ヒヨコ",level:"normal"},
-{emoji:"🐧",hira:"ぺんぎん",kata:"ペンギン",level:"normal"},
-{emoji:"🦆",hira:"あひる",kata:"アヒル",level:"normal"},
-{emoji:"🦉",hira:"ふくろう",kata:"フクロウ",level:"normal"},
-{emoji:"🐬",hira:"いるか",kata:"イルカ",level:"normal"},
-{emoji:"🐳",hira:"くじら",kata:"クジラ",level:"normal"},
-{emoji:"🦒",hira:"きりん",kata:"キリン",level:"normal"},
-{emoji:"🦓",hira:"しまうま",kata:"シマウマ",level:"normal"},
-{emoji:"🍌",hira:"ばなな",kata:"バナナ",level:"easy"},
-{emoji:"🍊",hira:"みかん",kata:"ミカン",level:"easy"},
-{emoji:"🍇",hira:"ぶどう",kata:"ブドウ",level:"normal"},
-{emoji:"🍉",hira:"すいか",kata:"スイカ",level:"easy"},
+{emoji:"🐿️",hira:"りす",kata:"リス",level:"easy"},
 {emoji:"🍑",hira:"もも",kata:"モモ",level:"easy"},
-{emoji:"🍍",hira:"ぱいなっぷる",kata:"パイナップル",level:"normal"},
-{emoji:"🥝",hira:"きうい",kata:"キウイ",level:"normal"},
-{emoji:"🥕",hira:"にんじん",kata:"ニンジン",level:"normal"},
-{emoji:"🍅",hira:"とまと",kata:"トマト",level:"easy"},
 {emoji:"🍆",hira:"なす",kata:"ナス",level:"easy"},
-{emoji:"🌽",hira:"とうもろこし",kata:"トウモロコシ",level:"normal"},
-{emoji:"🥔",hira:"じゃがいも",kata:"ジャガイモ",level:"normal"},
-{emoji:"🍄",hira:"きのこ",kata:"キノコ",level:"normal"},
-{emoji:"🥒",hira:"きゅうり",kata:"キュウリ",level:"normal"},
-{emoji:"🍙",hira:"おにぎり",kata:"オニギリ",level:"normal"},
 {emoji:"🍞",hira:"ぱん",kata:"パン",level:"easy"},
-{emoji:"🍰",hira:"けーき",kata:"ケーキ",level:"normal"},
-{emoji:"🍮",hira:"ぷりん",kata:"プリン",level:"easy"},
-{emoji:"🍦",hira:"あいす",kata:"アイス",level:"easy"},
-{emoji:"🍛",hira:"かれー",kata:"カレー",level:"normal"},
-{emoji:"🍜",hira:"らーめん",kata:"ラーメン",level:"normal"},
 {emoji:"🍣",hira:"すし",kata:"スシ",level:"easy"},
-{emoji:"🍔",hira:"はんばーがー",kata:"ハンバーガー",level:"normal"},
-{emoji:"🍟",hira:"ぽてと",kata:"ポテト",level:"easy"},
-{emoji:"🍩",hira:"どーなつ",kata:"ドーナツ",level:"normal"},
-{emoji:"🍪",hira:"くっきー",kata:"クッキー",level:"normal"},
-{emoji:"🍫",hira:"ちょこ",kata:"チョコ",level:"normal"},
-{emoji:"🚗",hira:"くるま",kata:"クルマ",level:"easy"},
-{emoji:"🚃",hira:"でんしゃ",kata:"デンシャ",level:"normal"},
-{emoji:"✈️",hira:"ひこうき",kata:"ヒコウキ",level:"normal"},
-{emoji:"🚲",hira:"じてんしゃ",kata:"ジテンシャ",level:"normal"},
+{emoji:"🍬",hira:"あめ",kata:"アメ",level:"easy"},
+{emoji:"🍭",hira:"あめ",kata:"アメ",level:"easy"},
 {emoji:"🚢",hira:"ふね",kata:"フネ",level:"easy"},
-{emoji:"🚀",hira:"ろけっと",kata:"ロケット",level:"normal"},
-{emoji:"🚕",hira:"たくしー",kata:"タクシー",level:"normal"},
 {emoji:"🚌",hira:"ばす",kata:"バス",level:"easy"},
-{emoji:"🚑",hira:"きゅうきゅうしゃ",kata:"キュウキュウシャ",level:"normal"},
-{emoji:"🚓",hira:"ぱとかー",kata:"パトカー",level:"normal"},
-{emoji:"🚚",hira:"とらっく",kata:"トラック",level:"normal"},
-{emoji:"🚁",hira:"へりこぷたー",kata:"ヘリコプター",level:"normal"},
-{emoji:"🚜",hira:"とらくたー",kata:"トラクター",level:"normal"},
-{emoji:"🌸",hira:"さくら",kata:"サクラ",level:"easy"},
-{emoji:"☀️",hira:"たいよう",kata:"タイヨウ",level:"normal"},
 {emoji:"⭐",hira:"ほし",kata:"ホシ",level:"easy"},
 {emoji:"🌙",hira:"つき",kata:"ツキ",level:"easy"},
 {emoji:"☁️",hira:"くも",kata:"クモ",level:"easy"},
 {emoji:"☔",hira:"かさ",kata:"カサ",level:"easy"},
-{emoji:"⛄",hira:"ゆきだるま",kata:"ユキダルマ",level:"normal"},
 {emoji:"🔥",hira:"ひ",kata:"ヒ",level:"easy"},
-{emoji:"🌻",hira:"ひまわり",kata:"ヒマワリ",level:"normal"},
 {emoji:"🌲",hira:"き",kata:"キ",level:"easy"},
 {emoji:"⛰️",hira:"やま",kata:"ヤマ",level:"easy"},
-{emoji:"🎈",hira:"ふうせん",kata:"フウセン",level:"normal"},
-{emoji:"⚽",hira:"ぼーる",kata:"ボール",level:"easy"},
-{emoji:"🎹",hira:"ぴあの",kata:"ピアノ",level:"easy"},
+{emoji:"🌰",hira:"くり",kata:"クリ",level:"easy"},
 {emoji:"📕",hira:"ほん",kata:"ホン",level:"easy"},
-{emoji:"✏️",hira:"えんぴつ",kata:"エンピツ",level:"normal"},
-{emoji:"🧸",hira:"ぬいぐるみ",kata:"ヌイグルミ",level:"normal"},
 {emoji:"🏠",hira:"いえ",kata:"イエ",level:"easy"},
-{emoji:"🕰️",hira:"とけい",kata:"トケイ",level:"easy"},
-{emoji:"👒",hira:"ぼうし",kata:"ボウシ",level:"normal"},
 {emoji:"👟",hira:"くつ",kata:"クツ",level:"easy"},
-{emoji:"🧦",hira:"くつした",kata:"クツシタ",level:"normal"},
-{emoji:"👜",hira:"かばん",kata:"カバン",level:"normal"},
-{emoji:"🚪",hira:"どあ",kata:"ドア",level:"easy"},
 {emoji:"🪑",hira:"いす",kata:"イス",level:"easy"},
-{emoji:"🛁",hira:"おふろ",kata:"オフロ",level:"normal"},
-{emoji:"📱",hira:"すまほ",kata:"スマホ",level:"normal"},
-{emoji:"💡",hira:"でんき",kata:"デンキ",level:"normal"},
 {emoji:"👀",hira:"め",kata:"メ",level:"easy"},
 {emoji:"👂",hira:"みみ",kata:"ミミ",level:"easy"},
 {emoji:"👃",hira:"はな",kata:"ハナ",level:"easy"},
 {emoji:"👄",hira:"くち",kata:"クチ",level:"easy"},
 {emoji:"✋",hira:"て",kata:"テ",level:"easy"},
-{emoji:"🦶",hira:"あし",kata:"アシ",level:"easy"}
+{emoji:"🦶",hira:"あし",kata:"アシ",level:"easy"},
+{emoji:"😀",hira:"かお",kata:"カオ",level:"easy"},
+{emoji:"🦷",hira:"は",kata:"ハ",level:"easy"},
+{emoji:"🔴",hira:"あか",kata:"アカ",level:"easy"},
+{emoji:"🔵",hira:"あお",kata:"アオ",level:"easy"},
+{emoji:"1️⃣",hira:"いち",kata:"イチ",level:"easy"},
+{emoji:"2️⃣",hira:"に",kata:"ニ",level:"easy"},
+{emoji:"3️⃣",hira:"さん",kata:"サン",level:"easy"},
+{emoji:"4️⃣",hira:"よん",kata:"ヨン",level:"easy"},
+{emoji:"6️⃣",hira:"ろく",kata:"ロク",level:"easy"},
+{emoji:"7️⃣",hira:"なな",kata:"ナナ",level:"easy"},
+{emoji:"8️⃣",hira:"はち",kata:"ハチ",level:"easy"},
+
+{emoji:"🦁",hira:"らいおん",kata:"ライオン",level:"normal"},
+{emoji:"🦊",hira:"きつね",kata:"キツネ",level:"normal"},
+{emoji:"🐸",hira:"かえる",kata:"カエル",level:"normal"},
+{emoji:"🐟",hira:"さかな",kata:"サカナ",level:"normal"},
+{emoji:"🐞",hira:"てんとうむし",kata:"テントウムシ",level:"normal"},
+{emoji:"🐔",hira:"にわとり",kata:"ニワトリ",level:"normal"},
+{emoji:"🐣",hira:"ひよこ",kata:"ヒヨコ",level:"normal"},
+{emoji:"🦉",hira:"ふくろう",kata:"フクロウ",level:"normal"},
+{emoji:"🐬",hira:"いるか",kata:"イルカ",level:"normal"},
+{emoji:"🦒",hira:"きりん",kata:"キリン",level:"normal"},
+{emoji:"🦓",hira:"しまうま",kata:"シマウマ",level:"normal"},
+{emoji:"🦔",hira:"はりねずみ",kata:"ハリネズミ",level:"normal"},
+{emoji:"🦇",hira:"こうもり",kata:"コウモリ",level:"normal"},
+{emoji:"🍌",hira:"ばなな",kata:"バナナ",level:"normal"},
+{emoji:"🍊",hira:"みかん",kata:"ミカン",level:"normal"},
+{emoji:"🍇",hira:"ぶどう",kata:"ブドウ",level:"normal"},
+{emoji:"🥝",hira:"きうい",kata:"キウイ",level:"normal"},
+{emoji:"🥕",hira:"にんじん",kata:"ニンジン",level:"normal"},
+{emoji:"🍅",hira:"とまと",kata:"トマト",level:"normal"},
+{emoji:"🌽",hira:"とうもろこし",kata:"トウモロコシ",level:"normal"},
+{emoji:"🥔",hira:"じゃがいも",kata:"ジャガイモ",level:"normal"},
+{emoji:"🍄",hira:"きのこ",kata:"キノコ",level:"normal"},
+{emoji:"🥬",hira:"はくさい",kata:"ハクサイ",level:"normal"},
+{emoji:"🧄",hira:"にんにく",kata:"ニンニク",level:"normal"},
+{emoji:"🍙",hira:"おにぎり",kata:"オニギリ",level:"normal"},
+{emoji:"🍮",hira:"ぷりん",kata:"プリン",level:"normal"},
+{emoji:"🍰",hira:"けーき",kata:"ケーキ",level:"normal"},
+{emoji:"🍦",hira:"あいす",kata:"アイス",level:"normal"},
+{emoji:"🍛",hira:"かれー",kata:"カレー",level:"normal"},
+{emoji:"🍜",hira:"らーめん",kata:"ラーメン",level:"normal"},
+{emoji:"🍟",hira:"ぽてと",kata:"ポテト",level:"normal"},
+{emoji:"🍩",hira:"どーなつ",kata:"ドーナツ",level:"normal"},
+{emoji:"🍪",hira:"くっきー",kata:"クッキー",level:"normal"},
+{emoji:"🍫",hira:"ちょこ",kata:"チョコ",level:"normal"},
+{emoji:"🍯",hira:"はちみつ",kata:"ハチミツ",level:"normal"},
+{emoji:"🚗",hira:"くるま",kata:"クルマ",level:"normal"},
+{emoji:"✈️",hira:"ひこうき",kata:"ヒコウキ",level:"normal"},
+{emoji:"🚕",hira:"たくしー",kata:"タクシー",level:"normal"},
+{emoji:"🚓",hira:"ぱとかー",kata:"パトカー",level:"normal"},
+{emoji:"🚜",hira:"とらくたー",kata:"トラクター",level:"normal"},
+{emoji:"🌸",hira:"さくら",kata:"サクラ",level:"normal"},
+{emoji:"☀️",hira:"たいよう",kata:"タイヨウ",level:"normal"},
+{emoji:"⛄",hira:"ゆきだるま",kata:"ユキダルマ",level:"normal"},
+{emoji:"🌻",hira:"ひまわり",kata:"ヒマワリ",level:"normal"},
+{emoji:"🌵",hira:"さぼてん",kata:"サボテン",level:"normal"},
+{emoji:"🍀",hira:"くろーばー",kata:"クローバー",level:"normal"},
+{emoji:"🎈",hira:"ふうせん",kata:"フウセン",level:"normal"},
+{emoji:"⚽",hira:"ぼーる",kata:"ボール",level:"normal"},
+{emoji:"🎹",hira:"ぴあの",kata:"ピアノ",level:"normal"},
+{emoji:"✏️",hira:"えんぴつ",kata:"エンピツ",level:"normal"},
+{emoji:"🧸",hira:"ぬいぐるみ",kata:"ヌイグルミ",level:"normal"},
+{emoji:"🕰️",hira:"とけい",kata:"トケイ",level:"normal"},
+{emoji:"👒",hira:"ぼうし",kata:"ボウシ",level:"normal"},
+{emoji:"🧦",hira:"くつした",kata:"クツシタ",level:"normal"},
+{emoji:"👜",hira:"かばん",kata:"カバン",level:"normal"},
+{emoji:"🚪",hira:"どあ",kata:"ドア",level:"normal"},
+{emoji:"🛁",hira:"おふろ",kata:"オフロ",level:"normal"},
+{emoji:"📱",hira:"すまほ",kata:"スマホ",level:"normal"},
+{emoji:"💡",hira:"でんき",kata:"デンキ",level:"normal"},
+{emoji:"📷",hira:"かめら",kata:"カメラ",level:"normal"},
+{emoji:"🎮",hira:"げーむ",kata:"ゲーム",level:"normal"},
+{emoji:"🧩",hira:"ぱずる",kata:"パズル",level:"normal"},
+{emoji:"🎁",hira:"ぷれぜんと",kata:"プレゼント",level:"normal"},
+{emoji:"🧢",hira:"ぼうし",kata:"ボウシ",level:"normal"},
+{emoji:"⚫",hira:"くろ",kata:"クロ",level:"normal"},
+{emoji:"⚪",hira:"しろ",kata:"シロ",level:"normal"},
+{emoji:"🟡",hira:"きいろ",kata:"キイロ",level:"normal"},
+{emoji:"🟢",hira:"みどり",kata:"ミドリ",level:"normal"},
+{emoji:"🟣",hira:"むらさき",kata:"ムラサキ",level:"normal"},
+{emoji:"🟤",hira:"ちゃいろ",kata:"チャイロ",level:"normal"},
+
+{emoji:"9️⃣",hira:"きゅう",kata:"キュウ",level:"hard"},
+{emoji:"🔟",hira:"じゅう",kata:"ジュウ",level:"hard"},
+{emoji:"🐧",hira:"ぺんぎん",kata:"ペンギン",level:"hard"},
+{emoji:"🐳",hira:"くじら",kata:"クジラ",level:"hard"},
+{emoji:"🦋",hira:"ちょう",kata:"チョウ",level:"hard"},
+{emoji:"🍍",hira:"ぱいなっぷる",kata:"パイナップル",level:"hard"},
+{emoji:"🥒",hira:"きゅうり",kata:"キュウリ",level:"hard"},
+{emoji:"🥞",hira:"ほっとけーき",kata:"ホットケーキ",level:"hard"},
+{emoji:"🚀",hira:"ろけっと",kata:"ロケット",level:"hard"},
+{emoji:"🚚",hira:"とらっく",kata:"トラック",level:"hard"},
+{emoji:"🚁",hira:"へりこぷたー",kata:"ヘリコプター",level:"hard"},
+{emoji:"🍔",hira:"はんばーがー",kata:"ハンバーガー",level:"hard"}
 ];
 
 const hiraGrid=[
@@ -279,14 +317,21 @@ function updateDisplay(){
   missText.textContent="ミス "+miss+"/"+maxMiss;
   modeText.textContent=mode==="hira"?"ひらがな":"カタカナ";
   modeBtn.textContent=mode==="hira"?"カタカナ":"ひらがな";
-  soundBtn.textContent=soundOn?"音声ON":"音声OFF";
+  soundBtn.textContent=soundOn?"おとON":"おとOFF";
   soundBtn.className=soundOn?"on":"";
 }
 
 function nextQuestion(){
   clearCheckTimer();
   input="";
-  let pool=questions.filter(q=>gameLevel==="normal"||q.level==="easy");
+  let pool;
+  if(gameLevel==="easy"){
+    pool=questions.filter(q=>q.level==="easy");
+  }else if(gameLevel==="normal"){
+    pool=questions.filter(q=>q.level==="easy"||q.level==="normal");
+  }else{
+    pool=questions;
+  }
   if(used.length>=pool.length)used=[];
   let q;
   do{q=pool[Math.floor(Math.random()*pool.length)]}while(used.includes(q.hira)&&pool.length>1);
@@ -384,11 +429,39 @@ function checkIfFull(){
   }
 }
 
-function startGame(level){
+window.startGame=function startGame(level){
   clearCheckTimer();
   gameLevel=level;score=0;miss=0;used=[];
   overlay.style.display="none";
   nextQuestion();
+}
+
+function showTitle(){
+  clearCheckTimer();
+  input="";
+  overlay.style.display="flex";
+  overlay.innerHTML=`<div class="panel">
+    <h1>こども<br>もじタッチ</h1>
+    <p>えをみて、したのもじをタッチしよう。<br>ひらがな・カタカナのれんしゅうができます。</p>
+
+    <div class="startButtons">
+      <button class="bigButton" type="button" onclick="startGame('easy')">やさしい</button>
+      <button class="bigButton" type="button" onclick="startGame('normal')">ふつう</button>
+      <button class="bigButton" type="button" onclick="startGame('hard')">むずかしい</button>
+      <button class="bigButton" type="button" onclick="startGame('hard')">むずかしい</button>
+    </div>
+
+    <div class="ad-large" id="titleAdBox">
+      <!-- おおきいこうこく 300×250 -->
+    </div>
+  </div>`;
+
+  const adBox=document.getElementById("titleAdBox");
+  if(adBox){
+    const s=document.createElement("script");
+    s.src="https://adm.shinobi.jp/s/7b3a5ddb43f4cb9eadb45b1c506ee384";
+    adBox.appendChild(s);
+  }
 }
 
 function gameOver(){
@@ -397,18 +470,27 @@ function gameOver(){
     <h1>おしまい</h1>
     <p>せいかい：<b>${score}</b>もん</p>
     <p>もういちどチャレンジしてみよう！</p>
-    <div class="ad-large">
-      <!-- 大きい広告枠：ゲームオーバー画面用 300×250など -->
-      300×250 広告枠
-    </div>
+
     <div class="startButtons">
-      <button class="bigButton" onclick="startGame('easy')">やさしい</button>
-      <button class="bigButton" onclick="startGame('normal')">ふつう</button>
+      <button class="bigButton" type="button" onclick="startGame('easy')">やさしい</button>
+      <button class="bigButton" type="button" onclick="startGame('normal')">ふつう</button>
+      <button class="bigButton" type="button" onclick="startGame('hard')">むずかしい</button>
+    </div>
+
+    <div class="ad-large" id="gameOverAd">
+      <!-- おおきいこうこく 300×250 -->
     </div>
   </div>`;
-  speak("おしまい。もう一度やってみよう");
-}
 
+  const adBox=document.getElementById("gameOverAd");
+  if(adBox){
+    const s=document.createElement("script");
+    s.src="https://adm.shinobi.jp/s/7b3a5ddb43f4cb9eadb45b1c506ee384";
+    adBox.appendChild(s);
+  }
+
+  speak("おしまい。もういちどやってみよう");
+}
 modeBtn.onclick=()=>{
   clearCheckTimer();
   mode=mode==="hira"?"kata":"hira";
@@ -426,10 +508,21 @@ document.getElementById("backBtn").onclick=()=>{clearCheckTimer();input=input.sl
 document.getElementById("clearBtn").onclick=()=>{clearCheckTimer();input="";updateDisplay()};
 document.getElementById("nextBtn").onclick=()=>nextQuestion();
 document.getElementById("answerBtn").onclick=()=>showAnswer();
+document.getElementById("titleBtn").onclick=()=>showTitle();
 document.getElementById("dakutenBtn").onclick=()=>replaceLastChar(dakutenMap,"つけられないよ");
 document.getElementById("handakuBtn").onclick=()=>replaceLastChar(handakuMap,"つけられないよ");
 document.getElementById("smallBtn").onclick=()=>replaceLastChar(smallMap,"小さくできないよ");
 document.getElementById("longBtn").onclick=()=>addLongVowel();
+
+
+document.addEventListener("click",(e)=>{
+  if(e.target && e.target.matches(".bigButton")){
+    const text=e.target.textContent.trim();
+    if(text==="やさしい") startGame("easy");
+    if(text==="ふつう") startGame("normal");
+    if(text==="むずかしい") startGame("hard");
+  }
+});
 
 buildKeyboard();
 current=questions[0];
